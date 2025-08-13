@@ -16,1082 +16,139 @@
 <meta name="twitter:description" content="一人の力で日経平均を動かせる男の投資哲学">
 <meta name="twitter:image" content="https://github.com/user-attachments/assets/06e26908-3c05-4dc8-8933-90e97c00444d"> 
 <meta name="twitter:url" content="https://您的完整网页URL">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>爆益銘柄推薦 | 高成長株投資プラットフォーム</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #1a6dcc;
-            --secondary-color: #e74c3c;
-            --accent-color: #27ae60;
-            --light-bg: #f8f9fa;
-            --dark-bg: #2c3e50;
-            --text-dark: #333333;
-            --text-light: #f8f9fa;
-            --border-radius: 4px;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Noto Sans JP', 'Roboto', sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background-color: #ffffff;
-            overflow-x: hidden;
-        }
-        
-        /* ヘッダースタイル */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            padding: 15px 0;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 8px;
-            color: var(--secondary-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 1rem;
-            position: relative;
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .cta-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: var(--border-radius);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            background-color: #1557a5;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(26, 109, 204, 0.25);
-        }
-        
-        /* ヒーローセクション */
-        .hero {
-            padding: 160px 0 100px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="none" stroke="%231a6dcc" stroke-width="0.5" stroke-dasharray="5,5"/></svg>') repeat;
-            opacity: 0.05;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-text {
-            flex: 1;
-            padding-right: 50px;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .hero-image-placeholder {
-            width: 100%;
-            max-width: 500px;
-            height: 350px;
-            background: linear-gradient(45deg, #e0e7ff, #d1e0fd);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .hero-image-placeholder i {
-            font-size: 5rem;
-            color: var(--primary-color);
-            opacity: 0.3;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.3;
-            color: var(--dark-bg);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #555;
-            max-width: 600px;
-        }
-        
-        .highlight {
-            color: var(--secondary-color);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background-color: rgba(231, 76, 60, 0.2);
-            z-index: -1;
-        }
-        
-        /* 特徴セクション */
-        .features {
-            padding: 100px 0;
-            background-color: var(--light-bg);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--dark-bg);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 20px auto 0;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(26, 109, 204, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-        
-        .feature-icon i {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--dark-bg);
-        }
-        
-        .feature-card p {
-            color: #666;
-        }
-        
-        /* 銘柄推薦セクション */
-        .recommendations {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .stocks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .stock-card {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid #eee;
-        }
-        
-        .stock-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .stock-header {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .stock-header h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-        
-        .stock-code {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .stock-content {
-            padding: 20px;
-        }
-        
-        .stock-metrics {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        
-        .metric {
-            text-align: center;
-        }
-        
-        .metric-value {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .metric-positive {
-            color: var(--accent-color);
-        }
-        
-        .metric-negative {
-            color: var(--secondary-color);
-        }
-        
-        .metric-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .stock-description {
-            color: #555;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-        
-        .stock-footer {
-            padding: 15px 20px;
-            background-color: #f9f9f9;
-            border-top: 1px solid #eee;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 8px 15px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.9rem;
-            width: 100%;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        /* 比較テーブル */
-        .comparison {
-            padding: 100px 0;
-            background-color: var(--light-bg);
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-        
-        .comparison-table th,
-        .comparison-table td {
-            padding: 15px 20px;
-            text-align: left;
-        }
-        
-        .comparison-table thead {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .comparison-table th {
-            font-weight: 500;
-        }
-        
-        .comparison-table tbody tr {
-            border-bottom: 1px solid #eee;
-        }
-        
-        .comparison-table tbody tr:last-child {
-            border-bottom: none;
-        }
-        
-        .comparison-table tbody tr:nth-child(even) {
-            background-color: #fafafa;
-        }
-        
-        .positive {
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-        
-        /* CTAセクション */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #0d4a9e 100%);
-            color: white;
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .cta-section p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .cta-button.large {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            background-color: white;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .cta-button.large:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* フッター */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            padding: 70px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-        
-        .footer-contact p {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-contact i {
-            margin-right: 10px;
-            width: 20px;
-            color: var(--primary-color);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* レスポンシブデザイン */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-            }
-            
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 50px;
-                text-align: center;
-            }
-            
-            .hero p {
-                max-width: 100%;
-            }
-            
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 130px 0 70px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .features,
-            .recommendations,
-            .comparison,
-            .cta-section {
-                padding: 70px 0;
-            }
-        }
-    </style>
+ 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>株式投資のオンライン講座に無料参加しませんか？</title>
+  <style>
+    html {
+      font-size: 15px;
+    }
+    @keyframes flash {
+      0% { box-shadow: 0 0 10px #c6a48d, 0 0 20px #c6a48d; transform: scale(1); }
+      50% { box-shadow: 0 0 25px #c6a48d, 0 0 40px #c6a48d; transform: scale(1.05); }
+      100% { box-shadow: 0 0 10px #c6a48d, 0 0 20px #c6a48d; transform: scale(1); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .blink-text {
+      display: inline-block;
+      font-weight: bold;
+      color: #c0392b;
+      animation: blink 1.2s infinite;
+      font-size: 1.2em;
+    }
+    body {
+      margin: 0;
+      font-family: 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: url('https://pp.vjshi.com/p/2024-12-26/f5436fedc8864ecfb0244490c9f507c1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      color: #333;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(6px);
+      z-index: -1;
+    }
+    .container {
+      max-width: 760px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .header-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-top: -80px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    h1 {
+      margin: 20px 0 10px;
+      font-size: 1.6em;
+      color: #800000;
+    }
+    .sub {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    ul {
+      text-align: left;
+      margin: 20px auto;
+      padding: 0 20px;
+      max-width: 640px;
+    }
+    ul li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    ul li::before {
+      content: "✅ ";
+      color: green;
+    }
+    .cta-button {
+      display: block;
+      width: 90%;
+      max-width: 420px;
+      margin: 20px auto;
+      padding: 15px;
+      background: #c6a48d;
+      color: white;
+      font-size: 1.1em;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+      animation: flash 2s infinite;
+    }
+    .cta-button:hover {
+      background: #b38a77;
+    }
+    .note {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <!-- ヘッダー -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-chart-line"></i>
-                <span>株リサーチPro</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#features">特徴</a></li>
-                <li><a href="#recommendations">銘柄推薦</a></li>
-                <li><a href="#comparison">比較</a></li>
-                <li><a href="#testimonials">実績</a></li>
-                <li><a href="#contact">お問合せ</a></li>
-            </ul>
-            <a href="https://works.do/5k83vJ8" class="cta-button">ご連絡はこちら</a>
-        </div>
-    </header>
-
-    <!-- ヒーローセクション -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>次世代の<span class="highlight">爆益銘柄</span>を<br>プロが厳選してご紹介</h1>
-                <p>AI分析と専門アナリストの知見を融合した銘柄推薦サービスで、市場をリードする成長株をタイムリーにお届けします。登録は完全無料。</p>
-                <a href="https://works.do/5k83vJ8" class="cta-button">無料相談 <i class="fas fa-arrow-right"></i></a>
-            </div>
-           <section>
-  
-  <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin: auto;">
-    <img src="https://github.com/user-attachments/assets/6e85644f-df30-4eaf-8624-1252ca96546d" alt="投資アドバイザー" style="width: 100%; height: 100%; object-fit: cover;">
+  <div class="container">
+    <img src="/images/头像.jpg" class="header-image" alt="講師写真" />
+    <h1>株式投資のオンライン講座に無料参加しませんか？</h1>
+    <p class="sub">
+      <span class="blink-text">LINE登録限定！</span><br>
+      <br>
+      今すぐLINEを追加して「暴騰株」と送信するだけで、今月注目の厳選された暴騰株3銘柄を【無料】でお届け！
+    </p>
+    <ul>
+      <li>すべての銘柄は、プロのアナリストが徹底的に調査・精査したもので、想定されるリターンは80％〜150％と非常に魅力的。</li>
+      <li>さらに、最適なエントリータイミングやポジション管理のアドバイスも提供し、スムーズな取引をサポート。</li>
+      <li>マーケットの動向や個別銘柄の状況はリアルタイムで監視しており、売買の最適なタイミングを随時お知らせ。</li>
+      <li>高品質なサービスと実践的なトレード戦略を通じて、投資活動を力強くサポート。</li>
+    </ul>
+    <p class="note">
+      現在、株価は底打ちからの反発の兆しを見せており、出来高も徐々に増加中。テクニカル指標MACDもゴールデンクロス。
+    </p>
+    <a href="https://works.do/5k83vJ8" target="_blank" class="cta-button">👉 をクリックしてLineで追加してください</a>
+    <p class="note">
+      上昇の勢いが強まっている今こそ、<br>
+      絶好のエントリーチャンス。<br>
+      「ブルーチップ」と返信を。
+    </p>
   </div>
-  <p style="text-align: center;">資産360億円株トレーダー ポーカー、ブルゴーニュワイン、麻雀、新信長の野望、にゃんこ大戦争</p>
-</section>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 特徴セクション -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>サービスの特徴</h2>
-                <p>当サービスが選ばれる理由 - 他にはない独自のアプローチで投資家の皆様をサポートします</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>AI予測分析</h3>
-                    <p>独自開発のAIアルゴリズムが大量の市場データを分析し、隠れた成長株を発掘。従来のアナリスト予想を超える精度を実現。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>専門家チーム</h3>
-                    <p>10年以上の経験を持つ金融アナリストがAIの分析結果を精査。質の高い銘柄選定を実現します。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>リアルタイム通知</h3>
-                    <p>重要な市場変化や新規推奨銘柄を即時通知。スマートフォンアプリやメールでタイムリーな情報をお届けします。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>リスク管理</h3>
-                    <p>各銘柄ごとに詳細なリスク分析を実施。投資判断に役立つ包括的な情報を提供します。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3>ポートフォリオ分析</h3>
-                    <p>保有銘柄を自動分析し、最適なポートフォリオ構成を提案。資産配分の見直しをサポートします。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>投資教育</h3>
-                    <p>初心者から上級者まで役立つ投資講座を提供。知識を深め、自信を持った投資判断を可能にします。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- 铭柄推荐セクション - 更新版（真实数据） -->
-<section class="recommendations" id="recommendations">
-    <div class="container">
-        <div class="section-title">
-            <h2>2025年6月 厳選爆益銘柄</h2>
-            <p>連続最高益・急成長企業に焦点 - 財務実績と市場分析に基づく厳選銘柄:cite[1]</p>
-        </div>
-        <div class="stocks-grid">
-            <!-- パンパシフィックHD (7532) -->
-            <div class="stock-card">
-                <div class="stock-header">
-                    <h3>パンパシフィックHD</h3>
-                    <div class="stock-code">東証P: 7532</div>
-                </div>
-                <div class="stock-content">
-                    <div class="stock-metrics">
-                        <div class="metric">
-                            <div class="metric-value metric-positive">+10.5%</div>
-                            <div class="metric-label">営業利益予想</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">33期連続</div>
-                            <div class="metric-label">増収増益</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">A++</div>
-                            <div class="metric-label">安定性</div>
-                        </div>
-                    </div>
-                    <p class="stock-description">日本最長の安定成長企業。小売・外食事業の効率化で持続的収益拡大中。22期連続増配継続:cite[1]。</p>
-                    <div class="stock-data">
-                        <p><i class="fas fa-chart-line"></i> 25年営業利益予想: <strong>1,550億円</strong></p>
-                        <p><i class="fas fa-percentage"></i> PBR: 4.74倍</p>
-                    </div>
-                </div>
-                <div class="stock-footer">
-                    <a href="https://kabutan.jp/stock/?code=7532" class="btn-outline">株探で確認</a>
-                </div>
-            </div>
-            
-            <!-- ジーエヌアイ (2160) -->
-            <div class="stock-card">
-                <div class="stock-header">
-                    <h3>ジーエヌアイ</h3>
-                    <div class="stock-code">東証G: 2160</div>
-                </div>
-                <div class="stock-content">
-                    <div class="stock-metrics">
-                        <div class="metric">
-                            <div class="metric-value metric-positive">9,371%</div>
-                            <div class="metric-label">増益率</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">¥3,850</div>
-                            <div class="metric-label">現在値</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">S</div>
-                            <div class="metric-label">成長性</div>
-                        </div>
-                    </div>
-                    <p class="stock-description">中国向け創薬ベンチャー。肝線維症治療薬「F351」が中国で画期的治療薬指定取得:cite[1]。</p>
-                    <div class="stock-data">
-                        <p><i class="fas fa-rocket"></i> 売上高10年成長: <strong>131倍</strong></p>
-                        <p><i class="fas fa-calculator"></i> PER: 15.5倍</p>
-                    </div>
-                </div>
-                <div class="stock-footer">
-                    <a href="https://kabutan.jp/stock/?code=2160" class="btn-outline">株探で確認</a>
-                </div>
-            </div>
-            
-            <!-- イー・ギャランティ (8771) -->
-            <div class="stock-card">
-                <div class="stock-header">
-                    <h3>イー・ギャランティ</h3>
-                    <div class="stock-code">東証P: 8771</div>
-                </div>
-                <div class="stock-content">
-                    <div class="stock-metrics">
-                        <div class="metric">
-                            <div class="metric-value">22期連続</div>
-                            <div class="metric-label">最高益更新</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">2.54%</div>
-                            <div class="metric-label">配当利回り</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">AA</div>
-                            <div class="metric-label">安定性</div>
-                        </div>
-                    </div>
-                    <p class="stock-description">保証事業で堅実な収益基盤。財務レバレッジ低く安定性高く、機関投資家からの支持拡大中:cite[1]。</p>
-                    <div class="stock-data">
-                        <p><i class="fas fa-coins"></i> 25年経常利益予想: <strong>52億円</strong></p>
-                        <p><i class="fas fa-shield-alt"></i> 自己資本比率: 68%</p>
-                    </div>
-                </div>
-                <div class="stock-footer">
-                    <a href="https://kabutan.jp/stock/?code=8771" class="btn-outline">株探で確認</a>
-                </div>
-            </div>
-            
-            <!-- モノタロウ (3064) -->
-            <div class="stock-card">
-                <div class="stock-header">
-                    <h3>モノタロウ</h3>
-                    <div class="stock-code">東証P: 3064</div>
-                </div>
-                <div class="stock-content">
-                    <div class="stock-metrics">
-                        <div class="metric">
-                            <div class="metric-value metric-positive">+15.3%</div>
-                            <div class="metric-label">経常利益予想</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">16期連続</div>
-                            <div class="metric-label">最高益更新</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">A+</div>
-                            <div class="metric-label">成長性</div>
-                        </div>
-                    </div>
-                    <p class="stock-description">MROプラットフォーム最大手。企業向けDX需要で増益持続。アジア展開が新たな成長エンジンに:cite[1]。</p>
-                    <div class="stock-data">
-                        <p><i class="fas fa-globe-asia"></i> 海外売上比率: <strong>38%→目標50%</strong></p>
-                        <p><i class="fas fa-calculator"></i> PER: 47.1倍</p>
-                    </div>
-                </div>
-                <div class="stock-footer">
-                    <a href="https://kabutan.jp/stock/?code=3064" class="btn-outline">株探で確認</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 追加銘柄セクション -->
-        <div class="additional-stocks">
-            <h3><i class="fas fa-star"></i> 特別注目：割安成長株</h3>
-            <div class="stock-card horizontal">
-                <div class="stock-header">
-                    <h3>中央自動車工業</h3>
-                    <div class="stock-code">東証P: 8117 | 10期連続経常最高益更新</div>
-                </div>
-                <div class="stock-content">
-                    <div class="stock-metrics">
-                        <div class="metric">
-                            <div class="metric-value">¥1,794</div>
-                            <div class="metric-label">現在値</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">2,460円</div>
-                            <div class="metric-label">理論株価</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value metric-positive">+27%</div>
-                            <div class="metric-label">割安度</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">7%</div>
-                            <div class="metric-label">EPS成長率</div>
-                        </div>
-                    </div>
-                    <p class="stock-description">自動車部品・ケミカル製品で高収益。高付加価値コーティング剤が利益率向上を牽引。アナリスト予想目標株価2,460円に対し現価1,794円と割安:cite[1]。</p>
-                    <div class="stock-data">
-                        <p><i class="fas fa-industry"></i> 主力製品シェア: 自動車防錆剤国内1位</p>
-                        <p><i class="fas fa-chart-bar"></i> PBR: 1.9倍 | ROE: 14.2%</p>
-                    </div>
-                </div>
-                <div class="stock-footer">
-                    <a href="https://kabutan.jp/stock/?code=8117" class="btn-outline">詳細分析レポートを見る</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
-/* 追加スタイル */
-.stock-data {
-    background: #f9f9f9;
-    border-radius: 4px;
-    padding: 12px;
-    margin: 15px 0;
-    font-size: 0.9rem;
-}
-
-.stock-data p {
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-}
-
-.stock-data i {
-    width: 20px;
-    margin-right: 10px;
-    color: var(--primary-color);
-}
-
-.additional-stocks {
-    margin-top: 50px;
-    border-top: 1px dashed #ddd;
-    padding-top: 30px;
-}
-
-.additional-stocks h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: var(--dark-bg);
-    display: flex;
-    align-items: center;
-}
-
-.additional-stocks h3 i {
-    color: var(--secondary-color);
-    margin-right: 10px;
-}
-
-.stock-card.horizontal {
-    display: flex;
-    flex-direction: column;
-}
-
-.stock-card.horizontal .stock-content {
-    padding: 20px;
-}
-
-.stock-card.horizontal .stock-metrics {
-    margin-bottom: 15px;
-}
-</style>
-
-    <!-- 比較テーブル -->
-    <section class="comparison" id="comparison">
-        <div class="container">
-            <div class="section-title">
-                <h2>他社サービスとの比較</h2>
-                <p>当サービスが提供する独自の価値提案 - 他社にはない優位性を実感してください</p>
-            </div>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>特徴</th>
-                        <th>株リサーチPro</th>
-                        <th>他社A</th>
-                        <th>他社B</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>AI分析を活用した銘柄選定</td>
-                        <td class="positive">◯</td>
-                        <td>△</td>
-                        <td>×</td>
-                    </tr>
-                    <tr>
-                        <td>毎月の推奨銘柄数</td>
-                        <td class="positive">8-12銘柄</td>
-                        <td>5-7銘柄</td>
-                        <td>3-5銘柄</td>
-                    </tr>
-                    <tr>
-                        <td>プロアナリストによる分析</td>
-                        <td class="positive">◯</td>
-                        <td>◯</td>
-                        <td>×</td>
-                    </tr>
-                    <tr>
-                        <td>リアルタイム通知システム</td>
-                        <td class="positive">◯</td>
-                        <td>△</td>
-                        <td>△</td>
-                    </tr>
-                    <tr>
-                        <td>ポートフォリオ分析ツール</td>
-                        <td class="positive">◯</td>
-                        <td>×</td>
-                        <td>×</td>
-                    </tr>
-                    <tr>
-                        <td>月額料金</td>
-                        <td class="positive">¥4,980</td>
-                        <td>¥6,500</td>
-                        <td>¥7,200</td>
-                    </tr>
-                    <tr>
-                        <td>無料トライアル期間</td>
-                        <td class="positive">14日間</td>
-                        <td>7日間</td>
-                        <td>なし</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- CTAセクション -->
-    <section class="cta-section" id="cta">
-        <div class="container">
-            <h2>今すぐ無料登録して<br>爆益銘柄情報をゲット</h2>
-            <p>14日間の無料トライアルですべての機能をお試しいただけます。クレジットカード情報は不要です。</p>
-            <a href="https://works.do/5k83vJ8" class="cta-button large">無料で始める</a>
-        </div>
-    </section>
-
-    <!-- フッター -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>株リサーチPro</h3>
-                    <p>次世代の投資分析プラットフォーム。AI技術と金融専門知識を融合させ、個人投資家にプロレベルの分析情報を提供します。</p>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-envelope"></i> ujgh7515@gmail.com</p>
-                        <p><i class="fas fa-phone"></i> 81-0709-3356</p>
-                        <p><i class="fas fa-map-marker-alt"></i> 東京都千代田区丸の内1-10-2</p>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>メニュー</h3>
-                    <ul class="footer-links">
-                        <li><a href="#features">サービスの特徴</a></li>
-                        <li><a href="#recommendations">銘柄推薦</a></li>
-                        <li><a href="#comparison">他社比較</a></li>
-                        <li><a href="#">実績レポート</a></li>
-                        <li><a href="#">投資教育</a></li>
-                        <li><a href="#">料金プラン</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>リソース</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">ブログ</a></li>
-                        <li><a href="#">マーケットレポート</a></li>
-                        <li><a href="#">投資用語集</a></li>
-                        <li><a href="#">よくある質問</a></li>
-                        <li><a href="#">お知らせ</a></li>
-                        <li><a href="#">採用情報</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>法的情報</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">利用規約</a></li>
-                        <li><a href="#">プライバシーポリシー</a></li>
-                        <li><a href="#">特定商取引法に基づく表示</a></li>
-                        <li><a href="#">リスク開示</a></li>
-                        <li><a href="#">お問い合わせ</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 株リサーチPro. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // スクロール時のヘッダースタイル変更
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-        
-        // スムーズスクロール
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
